@@ -196,6 +196,7 @@ function iniciarApp(){
 		
 		$('lathome').addEvent('click',function(){
 				showHideMenu();
+				scrollTo(0,0);
 				$('mapa').innerHTML='';
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
@@ -206,6 +207,7 @@ function iniciarApp(){
 											   });
 		
 		$('button_home').addEvent('click',function(){
+				scrollTo(0,0);
 				$('mapa').innerHTML='';
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
