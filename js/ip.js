@@ -5,7 +5,6 @@ ns.mipos=[-34.607603,-58.446414];
 ns.deviceData=['','','',''];//user_id,os_version,os,mobile_model
 
 function irA(elTo){
-	
 	var pos=getElementPosition.call(elTo);
 	var fin=pos.top;
 	var inicio=self.pageYOffset || (document.body.scrollTop+document.documentElement.scrollTop);
@@ -222,8 +221,9 @@ function iniciarApp(){
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
-				$('cuerpo').style.height='auto';
+				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
+				
 				
 											   });
 		
@@ -233,7 +233,7 @@ function iniciarApp(){
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
-				$('cuerpo').style.height='auto';
+				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
 				});
 		
