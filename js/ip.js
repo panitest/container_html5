@@ -104,8 +104,7 @@ function showItems(catid){
 
 DR(
    	function(){
-		getScript('http://api.movistar.acrons.net/p1.php?'+(+new Date()),function(){$('text_terms').innerHTML=ns.terms;});
-		getScript(
+		getScript('http://api.movistar.acrons.net/p1.php?'+(+new Date()),function(){$('text_terms').innerHTML=ns.terms;getScript(
 				  'http://www.disegnocentell.com.ar/mapa/p2.php?'+(+new Date()),
 				  function(){
 					  var appdata=ns.apps_sin_filtrar['Apps'],i=0,l=appdata.length;
@@ -122,17 +121,17 @@ DR(
 					  
 					  renderDestacadas(destacadas);
 					  renderCategorias(ns.cats['data']); 
-					  
+					  iniciarApp();
 				  }
 				 
-		);
+		);});
+		
 		if (navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(function(position){ns.mipos=[position.coords.latitude,position.coords.longitude]});
 		 }
 	}
 );
-DR(
-	function(){
+function iniciarApp(){
 		setTimeout(
 			function(){
 				
@@ -216,7 +215,7 @@ DR(
 				});
 		
 	} 
-);
+
 
 function showHideMenu(){
 	if($('cuerpo').className!='contenedorgeneralizq'){
