@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>AppContainer</title>
+<style>
+*{ margin:0; padding:0; outline:none}
+html,body{ height:100%}
+#header{ height:62px; background:#005474; width:100%; border:2px solid #004D6E; position:fixed; z-index:1000; box-sizing:border-box}
+#button_home{ width:55px; height:60px; border-right:2px solid #004D6E; background: url(images/menu_home_bg.png) center center no-repeat; background-size:50px 58px; float:left; cursor:pointer}
+@font-face {
+    font-family: 'movistar_headlineregular';
+    src: url('font/movistarheadline-regular-webfont.eot');
+    src: url('font/movistarheadline-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/movistarheadline-regular-webfont.woff2') format('woff2'),
+         url('font/movistarheadline-regular-webfont.woff') format('woff'),
+         url('font/movistarheadline-regular-webfont.ttf') format('truetype'),
+         url('font/movistarheadline-regular-webfont.svg#movistar_headlineregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+#title{ width:230px; padding:0 20px; height:60px; font-family:movistar_headlineregular; line-height:60px; color:#FFF; font-size:18px; font-weight:bold; float:left}
+#tricon{ width:55px; height:60px; position:absolute; top:0; right:0; background: url(images/menu_icon.png) center center no-repeat; background-size:26px 20px; cursor:pointer}
+#tituloprincipal{ font-family:movistar_headlineregular; color:#0F5C84; font-size:14px; padding-left:37px; background: url(images/icon_star.png) 14px 14px no-repeat; background-size:17px 16px; padding-top:14px; padding-bottom:10px}
+#tituloprincipal span{ display:block; height:1px; background:#E5E5E5; width:100%; position:relative; top:-3px; left:90px}
+#cuerpo{width:100%; margin:0 auto; background:#fff; position:relative; top:75px; overflow:hidden}
+#btdescarga{
+	display:block; text-decoration:none; width:100%; height:60px;
+	font-family:movistar_headlineregular; color:#0F5C84; font-size:18px;display:table-cell; vertical-align: bottom; font-weight:bold
+}
+#btdescarga code{font-family:movistar_headlineregular; color:#0F5C84; font-size:18px;}
+#btdescarga img{ margin-left:21px; margin-right:10px; position:relative; top:2px;}
+#btdescarga span{ width:31px; height:26px; background:url(images/icon_download.png) 0 bottom no-repeat; display: inline-block;  position:relative; top:2px; margin-left:10px;}
+#descripapp{ height:45px; padding: 12px 24px; color:#BCBCBC; font-family:movistar_headlineregular; font-size:14px; margin-bottom:12px}
+#optsdestacados,#optscats{ height:127px; background:#fff;overflow:auto; overflow-y:hidden;white-space: nowrap;width:100%; font-size:0; }
+.btdest{display:inline-block; width:25%; background:#E5E5E5;height:110px; cursor:pointer; position:relative; box-sizing:border-box; border-left:1px solid #F1F1F1;border-right:1px solid #F1F1F1; min-width:77px; margin:0;}
+.btselected{ background-color:#005474}
+.btselected span{width:0px; height:0px; display:block; border:12px solid transparent; border-top: 12px solid #FFF; position:absolute; left:50%; margin-left:-12px; top:0;}
+.btselected label{ color:#fff !important}
+.btdest img{ position:absolute; left:50%; margin-left:-25px; top:20px;}
+.btdest label{ width:100%; text-align:center; position:absolute; left:0; top:75px; color:#9FA1A3; font-family:movistar_headlineregular; font-size:10px;}
+#title2{ width:100%; padding:0 20px; padding-top:20px; padding-bottom:10px;  font-family:movistar_headlineregular; color:#0F5C84; font-size:14px; }
+.btcat{ display:inline-block; width:25%; background:#E5E5E5;height:110px;  cursor:pointer; position:relative;box-sizing:border-box; border-left:1px solid #F1F1F1;border-right:1px solid #F1F1F1; min-width:77px;}
+.btcat img{ position:absolute; left:50%; margin-left:-25px; top:20px;}
+.btcat label{ width:100%; text-align:center; position:absolute; left:0; top:75px; color:#9FA1A3; font-family:movistar_headlineregular; font-size:10px;}
+.btcatselected{background-color:#005474; }
+.btcatselected label{color:#fff !important}
+.btcatselected span{width:0px; height:0px; display:block; border:12px solid transparent; border-bottom: 12px solid #FFF; position:absolute; left:50%; margin-left:-12px; bottom:0;}
+#title3{ width:100%; padding:0 20px;  font-family:movistar_headlineregular; padding-top:20px;  padding-bottom:10px;  color:#0F5C84; font-size:14px;  visibility:hidden; }
+#icons{ background:#E5E5E5;overflow:auto; overflow-y:hidden;white-space: nowrap;width:100%; font-size:0; visibility:hidden; height:180px}
+.btdesticon{display:inline-block; width:25%;height:110px; cursor:pointer; position:relative; min-width:77px;}
+.btdesticon img{ position:absolute; left:50%; margin-left:-25px; top:20px;}
+.btdesticon label{ width:100%; text-align:center; position:absolute; left:0; top:75px; color:#0F5C84; font-family:movistar_headlineregular; font-size:10px;}
+#app{ position:relative; height:0; visibility:hidden; overflow:hidden}
+#tap{ width:100%; height:100%; background: url(images/container-128.png) center center no-repeat #E5E5E5; position:absolute; overflow:hidden}
+#terminos{ width:90%;height:0; margin:auto; background:#fff; margin-top:0; position:relative; overflow:hidden}
+#text_terms{ width:90%; height:70%; margin:auto; position:relative;  overflow:auto; background:#005474;  font-family:movistar_headlineregular;   color:#FFF; font-size:10px; padding:10px}
+#title4{  width:90%; padding-right:20px;  font-family:movistar_headlineregular; padding-top:20px;  padding-bottom:10px;  color:#0F5C84; font-size:14px; margin:auto;}
+::-webkit-scrollbar{
+	-webkit-appearance: none;
+	width: 11px;
+	height:11px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(30,30,30,.3);
+	
+}
+::-webkit-scrollbar-track {
+  
+	background-color: rgba(0,84,116,1);
+    border-radius: 8px;
+}
+#acepto{ width:200px; margin:auto; margin-top:10px; font-family:movistar_headlineregular;  color:#0F5C84; font-size:12px; height:20px; display:block}
+#acepto input{ position:relative; margin-right:5px; top:2px}
+#continuar{ background:#005474; color:#FFF;font-family:movistar_headlineregular; text-align:center; border:none; padding:10px; margin:5px auto; display:block}
+.cajaalert{
+	background-color:#FFF; 
+	-webkit-box-shadow: inset 0px 0px 15px #cacaca;
+	-moz-box-shadow: inset 0px 0px 15px #cacaca;
+	box-shadow: inset 0px 0px 15px #cacaca;
+	border:1px solid #D8D8D7;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000;
+}
+</style>
+<style>
+.contenedorgeneralizq{
+	left:-70%;
+	animation:izq .5s; 
+	-webkit-animation:izq .5s; 
+}
+.menuizq{
+	left:30%;
+	animation:menuizq .5s; 
+	-webkit-animation:menuizq .5s; 
+}
+@keyframes izq 
+{
+from {left:0;}
+to {left:-70%;}
+}
+@-webkit-keyframes izq /* Safari and Chrome */
+{
+from {left:0;}
+to {left:-70%;}
+}
+
+
+
+@keyframes menuizq 
+{
+from {left:100%;}
+to {left:30%;}
+}
+@-webkit-keyframes menuizq /* Safari and Chrome */
+{
+from {left:100%;}
+to {left:30%;}
+}
+
+
+
+
+
+
+
+.contenedorgeneralder{
+	left:0;
+	animation:der .5s;
+	-webkit-animation:der .5s; 
+}
+.menuder{
+	left:100%;
+	animation:menuder .5s; 
+	-webkit-animation:menuder .5s; 
+}
+
+@keyframes der 
+{
+from {left:-70%;}
+to {left:0;}
+}
+
+@-webkit-keyframes der /* Safari and Chrome */
+{
+from {left:-70%;}
+to {left:0;}
+}
+
+
+
+@keyframes menuder 
+{
+from {left:30%;}
+to {left:100%;}
+}
+
+@-webkit-keyframes menuder /* Safari and Chrome */
+{
+from {left:30%;}
+to {left:100%;}
+}
+
+
+#menulateral{ width:70%; height:100%; background:#09070A; position:fixed; right:100%; top:0; z-index:1000}
+.menlatitem{ height:50px; color:#FFF; font-family:movistar_headlineregular; line-height:50px; font-size:12px; border-bottom:1px solid #3A3A3C; padding-left:20px;opacity: 1;
+   -webkit-transition: opacity .25s ease-in-out; cursor:pointer;}
+.menlatitem:hover{opacity:.5}
+#mapa{ width:100%;height:0; visibility:hidden; position:relative}
+#wv1{ width:100%;}
+</style>
+<script type="text/javascript" src="js/panino.js"></script>
+<script type="text/javascript" src="js/comunes.js"></script>
+<script type="text/javascript" src="js/paninoOverlay.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/paninoAJAX.js"></script>
+<script type="text/javascript" src="js/transicion.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script> -->
+<script type="text/javascript" src="js/ip.js"></script>
+
+</head>
+
+<body>
+
+<!-- términos -->
+<div id="terminos">
+	<h1 id="title4">Términos y condiciones</h1>
+	<div id="text_terms"></div>
+    <label id="acepto"><input id="chacepto" name="" type="checkbox" value="">Acepto Términos y condiciones</label>
+    <input  id="continuar" value="Continuar" name="" type="button">
+</div>
+<!-- /términos -->
+
+<!-- app -->
+<div id="app">
+	<nav id="menulateral">
+    	<div id="lathome" class="menlatitem"><span>Home</span></div>
+    	<div class="menlatitem"><span>Mensajes</span></div>
+     	<div class="menlatitem"><span>Notificaciones</span></div>
+        <div class="menlatitem"><span>Favoritos</span></div>
+     	<div class="menlatitem"><span>Encuestas</span></div>
+        <div class="menlatitem"><span>Promociones</span></div>
+     	<div class="menlatitem"><span>Configuración</span></div>
+        <div class="menlatitem"><span>Términos y Condiciones</span></div>
+    </nav>
+
+    <div id="header">
+    	<div id="button_home"></div>
+        <div id="title">Mundo Movistar</div>
+        <div id="tricon"></div>
+    </div>
+<div id="cuerpo">
+  <h1 id="tituloprincipal">Destacados<span></span></h1>
+    <a href="#" id="btdescarga"><img src="images/app_4g.png" width="57" height="57">4G Lite<span></span></a>
+    <div id="descripapp">Con 4G Lite podrás saber la ubicación de las antenas LTE  y los centros de pruebas de Movistar.</div>
+  
+  <nav id="optsdestacados">
+  		<div class="btdest btselected"><span></span><img src="images/app_4g.png" width="50" height="50"><label>4G Lite</label></div>
+        <div class="btdest"><span></span><img src="images/app_tugo.png" width="50" height="50"><label>TuGo</label></div>
+        <div class="btdest"><span></span><img src="images/app_numfree.png" width="50" height="50"><label>Números free</label></div>
+        <div class="btdest"><span></span><img src="images/app_micuenta.png" width="50" height="50"><label>MI Cuenta</label></div>
+  </nav>
+   <h1 id="title2">Categorías</h1>
+   <nav id="optscats">
+       <div class="btcat"><span></span><img src="images/cat_ajustes.png" width="50"><label>Ajustes</label></div>
+       <div class="btcat"><span></span><img src="images/cat_atencion.png" width="50"><label>Atención al cliente</label></div>
+       <div class="btcat btcatselected"><span></span><img src="images/cat_comunidad_on.png" width="50"><label>Comunidad</label></div>
+       <div class="btcat"><span></span><img src="images/cat_pc.png" width="50"><label>PC</label></div>
+       <div class="btcat"><span></span><img src="images/cat_juegos.png" width="58"><label>Juegos</label></div>
+   </nav>
+    <h1 id="title3"></h1>
+     <nav id="icons">
+     
+     </nav>
+  </div>
+ 
+ <!-- map -->
+<div id="mapa">
+ 
+
+</div>
+<!-- /map --> 
+ 
+ 
+ 
+ 
+</div>
+<!-- /app -->
+<!-- tap -->
+<div id="tap">
+
+</div>
+<!-- /tap -->
+<div style="position:absolute;left:-1500px;top:-1500px; background:url(images/ajax-loader.gif) 50% 50% no-repeat; text-align:center;z-index:120" id="qq"></div>
+<form id="f1" action="http://container.movistar.acrons.net/JSON/orm.php" target="ifr" method="post">
+  <input name="odku" value="1" type="hidden">
+  <input name="class" value="Container_users" type="hidden">
+  <input name="values[user_id]" id="user_id" value="" type="hidden">
+  <input name="values[os]" id="os" value="" type="hidden">
+  <input name="values[mobile_model]"id="mobile_model"  value="" type="hidden">
+  <input name="values[os_version]" id="os_version"  value="" type="hidden">
+  <input name="values[type]" value="WP8" type="hidden">
+  <input id="mobile_maker" name="values[mobile_maker]" value="WP8" type="hidden">
+</form>
+<iframe id="ifr" name="ifr" style="width:0; height:0; position:absolute; top:-15000px;"></iframe>
+</body>
+</html>
