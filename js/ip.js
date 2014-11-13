@@ -4,7 +4,7 @@ ns.apps={};
 ns.mipos=[-34.607603,-58.446414];
 ns.deviceData=['','','',''];//user_id,os_version,os,mobile_model
 function showLoading(){
-	$('loading').style.top=(document.documentElement.clientHeight-5)+'px';
+	$('loading').style.top=((document.documentElement.clientHeight/2)-5)+'px';
 }
 function hideLoading(){
 	$('loading').style.top='-14000px';
