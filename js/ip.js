@@ -4,6 +4,7 @@ ns.apps={};
 ns.mipos=[-34.607603,-58.446414];
 ns.deviceData=['','','',''];//user_id,os_version,os,mobile_model
 function actionDescarga(url){
+	scrollTo(0,0);
 	var h=document.documentElement.clientHeight;
 	$('mapa').style.height=h+'px';
 	$('mapa').style.visibility='visible';
@@ -21,8 +22,9 @@ function selectApp(name){
 		}
 	}
 	markSelected(name);
-	$('btdescarga').innerHTML='<img onclick="actionDescarga(&quot;'+app['url']+'&quot;);return false;" src="http://container.ilab.acrons.net/'+app['image'].split('../').join('')+'" width="57" height="57"><code onclick="actionDescarga(&quot;'+app['url']+'&quot;);return false;">'+name+'</code><span onclick="actionDescarga(&quot;'+app['url']+'&quot;);return false;"></span>';
-	$('descripapp').innerHTML='<span onclick="actionDescarga(&quot;'+app['url']+'&quot;);return false;">'+app['description']+'</span>';
+	$('envprinc').innerHTML='<div onclick="actionDescarga(&quot;'+app['url']+'&quot;)"><div id="btdescarga"><img src="http://container.ilab.acrons.net/'+app['image'].split('../').join('')+'" width="57" height="57">'+name+'<span></span></div>    <div id="descripapp">'+app['description']+'</div></div>';
+	
+	
 	
 }
 function getCatNameById(catid){
@@ -187,38 +189,8 @@ DR(
 		$('text_terms').innerHTML=ns.terms;
 		
 		$('tricon').addEvent('click',showHideMenu);
-		/*
-		$('btdescarga').addEvent(
-			'click',
-			function(){
-				var h=document.documentElement.clientHeight;
-				$('mapa').style.height=h+'px';
-				$('mapa').style.visibility='visible';
-				$('mapa').innerHTML='<iframe style="margin-top:62px;" src="http://disegnocentell.com.ar/mapa/miniapp/index.html?latitud='+ns.mipos[0]+'&longitud='+ns.mipos[1]+'&'+(+new Date())+'&user_id='+ns.deviceData[0]+'&os_version='+ns.deviceData[1]+'&os='+ns.deviceData[2]+'&mobile_model='+ns.deviceData[3]+'" width="100%" height="'+(h-62)+'" allowtransparency="true" id="appmapa" frameborder="0"></iframe>';
-				
-				
-				$('cuerpo').style.height='0';
-				$('cuerpo').style.visibility='hidden';
-				
-				
-			}
-		);
-		*/
-		/*$('abajoicon').addEvent(
-			'click',
-			function(){
-				var h=document.documentElement.clientHeight;
-				$('mapa').style.height=h+'px';
-				$('mapa').style.visibility='visible';
-				$('mapa').innerHTML='<iframe style="margin-top:62px;" src="http://disegnocentell.com.ar/mapa/mapa2.php?latitud=-34.607603&longitud=-58.446414&'+(+new Date())+'" width="100%" height="'+(h-62)+'" allowtransparency="true" id="appmapa" frameborder="0"></iframe>';
-				
-				
-				$('cuerpo').style.height='0';
-				$('cuerpo').style.visibility='hidden';
-				
-			}
-		);
-		*/
+		
+		
 		
 		$('lathome').addEvent('click',function(){
 				showHideMenu();
@@ -252,7 +224,7 @@ function showHideMenu(){
 		$('menulateral').className='menuder';
 	}	
 }
-/*
+
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 		$('user_id').value=device.uuid;
@@ -262,4 +234,4 @@ function onDeviceReady() {
 		var md=new MobileDetect(navigator.userAgent);
 		$('mobile_maker').value=md.phone() || 'Unknown';
 }
-*/
+
