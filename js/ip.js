@@ -45,7 +45,7 @@ function selectApp(name){
 	}
 	markSelected(name);
 	$('envprinc').innerHTML='<div onclick="actionDescarga(&quot;'+app['url']+'&quot;)"><div id="btdescarga"><img src="http://container.ilab.acrons.net/'+app['image'].split('../').join('')+'" width="57" height="57">'+name+'<span></span></div>    <div id="descripapp">'+app['description']+'</div></div>';
-	
+	irA($('cuerpo'));
 	
 	
 }
