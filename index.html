@@ -177,6 +177,7 @@ and (max-width : 320px) {
 /* Styles */
 #title{ font-size:13px; }
 }
+#loading{ position:fixed; top:-14000px; z-index:10000; left:50%; margin-left:-8px;}
 </style>
 <script type="text/javascript" src="js/panino.js"></script>
 <script type="text/javascript" src="js/comunes.js"></script>
@@ -190,7 +191,7 @@ and (max-width : 320px) {
 </head>
 
 <body>
-
+<img id="loading" src="images/ajax-loader.gif">
 <!-- términos -->
 <div id="terminos">
 	<h1 id="title4">Términos y condiciones</h1>
