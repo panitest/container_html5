@@ -10,7 +10,7 @@ function hideLoading(){
 	$('loading').style.top='-14000px';
 }
 function actionDescarga(url){
-	$('cuerpo').style.height='0';
+	$('cuerpo').style.height='0px';
 	$('cuerpo').style.visibility='hidden';
 	scrollTo(0,0);
 	showLoading();
