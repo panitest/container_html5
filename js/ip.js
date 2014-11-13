@@ -9,7 +9,6 @@ function irA(elTo){
 	var pos=getElementPosition.call(elTo);
 	var fin=pos.top;
 	var inicio=self.pageYOffset || (document.body.scrollTop+document.documentElement.scrollTop);
-	hideTipCat();
 	var t=new Transition(SineCurve,500,function(p){ 
         if(fin<inicio){ 
             var delta=inicio-fin; 
@@ -252,7 +251,6 @@ function showHideMenu(){
 		$('menulateral').className='menuder';
 	}	
 }
-
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 		$('user_id').value=device.uuid;
@@ -262,4 +260,3 @@ function onDeviceReady() {
 		var md=new MobileDetect(navigator.userAgent);
 		$('mobile_maker').value=md.phone() || 'Unknown';
 }
-
