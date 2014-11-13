@@ -202,6 +202,7 @@ DR(
 		
 		$('lathome').addEvent('click',function(){
 				showHideMenu();
+				hideLoading(),
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
@@ -211,6 +212,7 @@ DR(
 											   });
 		
 		$('button_home').addEvent('click',function(){
+				hideLoading();
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
