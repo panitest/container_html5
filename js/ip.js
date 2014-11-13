@@ -4,6 +4,27 @@ ns.apps={};
 ns.mipos=[-34.607603,-58.446414];
 ns.deviceData=['','','',''];//user_id,os_version,os,mobile_model
 
+function irA(elTo){
+	
+	var pos=getElementPosition.call(elTo);
+	var fin=pos.top;
+	var inicio=self.pageYOffset || (document.body.scrollTop+document.documentElement.scrollTop);
+	hideTipCat();
+	var t=new Transition(SineCurve,500,function(p){ 
+        if(fin<inicio){ 
+            var delta=inicio-fin; 
+            scrollTo(0,(inicio-(p*delta))); 
+        } 
+        else{ 
+            var delta=fin-inicio; 
+             scrollTo(0,(inicio+(p*delta))); 
+        } 
+    }); 
+    t.run(); 
+    t=null;
+	
+	
+}
 
 function actionDescarga(url){
 	$('cuerpo').style.height='0px';
@@ -86,6 +107,7 @@ function renderCategorias(cats){
 }
 function showItems(catid){
 	
+	
 	var apps=ns.apps['Apps'],i=0,l=apps.length,html='';
 	for(;i<l;i++){
 		if(apps[i].category==catid){
@@ -99,7 +121,7 @@ function showItems(catid){
 	markSelectedCat(catname);
 	$('title3').innerHTML=catname;
 	$('title3').style.visibility='visible';
-	
+	 irA($('title3'));
 }
 
 DR(
