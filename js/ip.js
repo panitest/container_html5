@@ -30,9 +30,10 @@ function loadIframe() {
 }
 function actionDescarga(url){
 	scrollTo(0,0);
+	setTimeout(function(){scrollTo(0,0);},10);
 	$('cuerpo').style.height='0px';
 	$('cuerpo').style.visibility='hidden';
-	
+	setTimeout(function(){scrollTo(0,0);},10);
 	var h=ns.htotal;
 	$('mapa').style.height=h+'px';
 	$('mapa').style.visibility='visible';
