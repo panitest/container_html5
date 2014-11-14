@@ -33,6 +33,8 @@ function actionDescarga(url){
 	setTimeout(function(){scrollTo(0,0);},10);
 	$('cuerpo').style.height='0px';
 	$('cuerpo').style.visibility='hidden';
+	$('button_home').style.visibility='visible';
+	$('button_home').style.width='55px';
 	setTimeout(function(){scrollTo(0,0);},10);
 	var h=ns.htotal;
 	$('mapa').style.height=h+'px';
@@ -237,6 +239,8 @@ function iniciarApp(){
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
+				$('button_home').style.visibility='hidden';
+				$('button_home').style.width='0';
 				$('app').style.height='717px';
 				scrollTo(0,0);
 											   });
@@ -250,6 +254,8 @@ function iniciarApp(){
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
+				$('button_home').style.visibility='hidden';
+				$('button_home').style.width='0';
 				$('app').style.height='717px';
 				$('cuerpo').style.visibility='visible';
 				scrollTo(0,0);
