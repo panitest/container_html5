@@ -222,7 +222,10 @@ function iniciarApp(){
 		
 		$('lathome').addEvent('click',function(){
 				showHideMenu();
-				
+				if($('rlif')){
+					$('rlif').style.visibility='hidden';
+					$('rlif').style.height='0';
+				}
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
@@ -233,7 +236,10 @@ function iniciarApp(){
 											   });
 		
 		$('button_home').addEvent('click',function(){
-				
+				if($('rlif')){
+					$('rlif').style.visibility='hidden';
+					$('rlif').style.height='0';
+				}
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
