@@ -23,10 +23,8 @@ function irA(elTo){
 	
 	
 }
-function resizeIframe() {
-	var obj=$('rlif');
-      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-      obj.contentWindow.document.body.style.overflow ="none";
+function loadIframe() {
+	alerta('cargado',300);
 }
 function actionDescarga(url){
 	$('cuerpo').style.height='0px';
@@ -35,8 +33,7 @@ function actionDescarga(url){
 	var h=document.documentElement.clientHeight;
 	$('mapa').style.height=h+'px';
 	$('mapa').style.visibility='visible';
-	$('mapa').style.overflow='auto';
-	$('mapa').innerHTML='<iframe onload="resizeIframe()" id="rlif" style="margin-top:62px; " src="'+url+'?latitud='+ns.mipos[0]+'&longitud='+ns.mipos[1]+'&'+(+new Date())+'&user_id='+ns.deviceData[0]+'&os_version='+ns.deviceData[1]+'&os='+ns.deviceData[2]+'&mobile_model='+ns.deviceData[3]+'" width="100%" height="'+(h-62)+'" allowtransparency="true" id="appmapa" frameborder="0"></iframe>';
+	$('mapa').innerHTML='<iframe onload="loadIframe()" id="rlif" style="margin-top:62px;height:'+(h-62)+'px;overflow:auto;overflow-x:hidden;" src="'+url+'?latitud='+ns.mipos[0]+'&longitud='+ns.mipos[1]+'&'+(+new Date())+'&user_id='+ns.deviceData[0]+'&os_version='+ns.deviceData[1]+'&os='+ns.deviceData[2]+'&mobile_model='+ns.deviceData[3]+'" width="100%" height="'+(h-62)+'" allowtransparency="true" id="appmapa" frameborder="0"></iframe>';
 	
 }
 
