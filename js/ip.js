@@ -228,6 +228,7 @@ function iniciarApp(){
 				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
 				$('app').style.height='779px';
+				document.body.style.height=document.documentElement.style.height='779px';
 				
 											   });
 		
@@ -239,6 +240,7 @@ function iniciarApp(){
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
 				$('app').style.height='779px';
+				document.body.style.height=document.documentElement.style.height='779px';
 				$('cuerpo').style.visibility='visible';
 				});
 		
