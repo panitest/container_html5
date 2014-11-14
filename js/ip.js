@@ -29,9 +29,10 @@ function loadIframe() {
 	$('loading').style.height='0px';
 }
 function actionDescarga(url){
+	scrollTo(0,0);
 	$('cuerpo').style.height='0px';
 	$('cuerpo').style.visibility='hidden';
-	scrollTo(0,0);
+	
 	var h=ns.htotal;
 	$('mapa').style.height=h+'px';
 	$('mapa').style.visibility='visible';
@@ -221,25 +222,25 @@ function iniciarApp(){
 		
 		$('lathome').addEvent('click',function(){
 				showHideMenu();
-				scrollTo(0,0);
+				
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
 				$('app').style.height='779px';
-				$('app').scrollTop=0;
+				scrollTo(0,0);
 											   });
 		
 		$('button_home').addEvent('click',function(){
-				scrollTo(0,0);
+				
 				$('mapa').style.height='0';
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
 				$('app').style.height='779px';
-				$('app').scrollTop=0;
 				$('cuerpo').style.visibility='visible';
+				scrollTo(0,0);
 				});
 		
 	} 
