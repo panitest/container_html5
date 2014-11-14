@@ -227,7 +227,7 @@ function iniciarApp(){
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
 				$('cuerpo').style.visibility='visible';
-				
+				$('app').style.height='779px';
 				
 											   });
 		
@@ -238,6 +238,7 @@ function iniciarApp(){
 				$('mapa').style.visibility='hidden';
 				$('mapa').innerHTML='';
 				$('cuerpo').style.height='717px';
+				$('app').style.height='779px';
 				$('cuerpo').style.visibility='visible';
 				});
 		
