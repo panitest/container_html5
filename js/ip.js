@@ -95,7 +95,7 @@ function renderDestacadas(destacadas){
 	selectApp(destacadas[0]['name']);
 }
 function renderCategorias(cats){
-	var html='',i=0,j,l=cats.length,ll=ns.apps['Apps'].length,vacia;
+	var html='',i=0,j,l=cats.length,ll=ns.apps['Apps'].length,vacia,novacias=[];
 	for(;i<l;i++){
 		vacia=1;
 		for(j=0;j<ll;j++){
@@ -104,12 +104,14 @@ function renderCategorias(cats){
 			}
 		}
 		if(!vacia){
+		novacias.push(+cats[i]['id']);
 		html+='<div onclick="showItems('+cats[i]['id']+')" class="btcat"><span></span><img src="http://container.ilab.acrons.net/imgs/'+cats[i]['image']+'" width="50"><label>'+cats[i]['name']+'</label></div>';
 		}
 	}
 	$('optscats').innerHTML=html;
+	return novacias;
 }
-function showItems(catid){
+function showItems(catid,no){
 	
 	
 	var apps=ns.apps['Apps'],i=0,l=apps.length,html='';
@@ -125,7 +127,9 @@ function showItems(catid){
 	markSelectedCat(catname);
 	$('title3').innerHTML=catname;
 	$('title3').style.visibility='visible';
-	 irA($('title3'));
+	if(!no){
+	    irA($('title3'));
+	}
 }
 
 DR(
@@ -146,7 +150,8 @@ DR(
 					  }
 					  
 					  renderDestacadas(destacadas);
-					  renderCategorias(ns.cats['data']); 
+					  var novacias=renderCategorias(ns.cats['data']); 
+					  showItems(novacias[0],1);
 					  iniciarApp();
 				  }
 				 
