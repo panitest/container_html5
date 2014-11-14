@@ -275,7 +275,6 @@ function showHideMenu(){
 		$('menulateral').className='menuder';
 	}	
 }
-/*
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 		$('user_id').value=device.uuid;
@@ -284,4 +283,4 @@ function onDeviceReady() {
 		$('mobile_model').value=device.model;
 		var md=new MobileDetect(navigator.userAgent);
 		$('mobile_maker').value=md.phone() || 'Unknown';
-}*/
+}
